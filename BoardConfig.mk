@@ -17,26 +17,27 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
--include device/samsung/smdk4412-common/BoardCommonConfig.mk
+-include device/samsung/lt01-common/BoardCommonConfig.mk
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
 BOARD_MODEM_TYPE := xmm6262
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/n7100/include
+
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/lt013g/include
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n7100/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/lt013g/bluetooth
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
-TARGET_KERNEL_CONFIG := cyanogenmod_n7100_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/lt01
+TARGET_KERNEL_CONFIG := cyanogenmod_lt013g_defconfig
 
 # assert
-TARGET_OTA_ASSERT_DEVICE := t03g,n7100,GT-N7100
+TARGET_OTA_ASSERT_DEVICE := lt013g,lt013gxx,SM-T311
 
 # inherit from the proprietary version
--include vendor/samsung/n7100/BoardConfigVendor.mk
+-include vendor/samsung/lt013g/BoardConfigVendor.mk
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/n7100/rootdir/fstab.smdk4x12
+TARGET_RECOVERY_FSTAB := device/samsung/lt013g/rootdir/fstab.smdk4x12
 RECOVERY_FSTAB_VERSION := 2

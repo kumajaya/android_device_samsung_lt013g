@@ -15,9 +15,9 @@
 #
 
 # Include common makefile
-$(call inherit-product, device/samsung/smdk4412-common/common.mk)
+$(call inherit-product, device/samsung/lt01-common/common.mk)
 
-LOCAL_PATH := device/samsung/n7100
+LOCAL_PATH := device/samsung/lt013g
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -26,8 +26,8 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # currently contain all of the bitmaps at xhdpi density so
 # we do this little trick to fall back to the hdpi version
 # if the xhdpi doesn't exist.
-PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
+PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
+PRODUCT_AAPT_PREF_CONFIG := tvdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -36,11 +36,15 @@ PRODUCT_COPY_FILES += \
 
 # Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/t03g
+    $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/lt013g
 
 # Camera
 PRODUCT_PACKAGES += \
     camera.smdk4x12
+
+# IRDA
+PRODUCT_PACKAGES += \
+    irda.exynos4
 
 # Gps
 PRODUCT_COPY_FILES += \
@@ -51,34 +55,6 @@ PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
     SamsungServiceMode
-
-# NFC
-PRODUCT_PACKAGES += \
-    nfc.exynos4 \
-    libnfc \
-    libnfc_jni \
-    Nfc \
-    Tag
-
-PRODUCT_COPY_FILES += \
-    packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt \
-    frameworks/base/nfc-extras/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
-
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access_debug.xml
-endif
-
-PRODUCT_COPY_FILES += \
-    $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
-
-PRODUCT_PACKAGES += \
-    com.android.nfc_extras
-
-$(call inherit-product, vendor/cm/config/nfc_enhanced.mk)
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -93,4 +69,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
 
-$(call inherit-product-if-exists, vendor/samsung/n7100/n7100-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/lt013g/lt013g-vendor.mk)

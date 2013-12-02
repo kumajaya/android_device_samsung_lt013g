@@ -1,11 +1,11 @@
 [
     {
-        "repository": "android_device_samsung_smdk4412-common",
-        "target_path": "device/samsung/smdk4412-common"
+        "repository": "android_device_samsung_lt01-common",
+        "target_path": "device/samsung/lt01-common"
     },
     {
-        "repository": "android_kernel_samsung_smdk4412",
-        "target_path": "kernel/samsung/smdk4412"
+        "repository": "android_kernel_samsung_lt01",
+        "target_path": "kernel/samsung/lt01"
     },
     {
         "repository": "android_packages_apps_SamsungServiceMode",

@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_n7100.mk
+    $(LOCAL_DIR)/full_lt013g.mk
