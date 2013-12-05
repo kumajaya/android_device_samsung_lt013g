@@ -118,6 +118,9 @@
     <!-- Boolean to enable stk functionality on Samsung phones -->
     <bool name="config_samsung_stk">true</bool>
 
+    <!-- Enable multi-user -->
+    <integer name="config_multiuserMaximumUsers">5</integer>
+
     <!-- True if the Irda service should be started at system start -->
     <bool name="config_enableIrdaManagerService">true</bool>
 
