@@ -362,7 +362,7 @@ static int start_call(struct m0_audio_device *adev)
     /* Open modem PCM channels */
     if (adev->pcm_modem_dl == NULL) {
         ALOGD("Opening PCM modem DL stream");
-            adev->pcm_modem_dl = pcm_open(CARD_DEFAULT, PORT_MODEM, PCM_OUT, &pcm_config_vx);
+        adev->pcm_modem_dl = pcm_open(CARD_DEFAULT, PORT_MODEM, PCM_OUT, &pcm_config_vx);
         if (!pcm_is_ready(adev->pcm_modem_dl)) {
             ALOGE("cannot open PCM modem DL stream: %s", pcm_get_error(adev->pcm_modem_dl));
             goto err_open_dl;
@@ -493,6 +493,7 @@ static void set_incall_device(struct m0_audio_device *adev)
             device_type = SOUND_AUDIO_PATH_HANDSET;
             break;
         case AUDIO_DEVICE_OUT_SPEAKER:
+        case AUDIO_DEVICE_OUT_ANLG_DOCK_HEADSET:
         case AUDIO_DEVICE_OUT_AUX_DIGITAL:
         case AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET:
             device_type = SOUND_AUDIO_PATH_SPEAKER;
@@ -629,8 +630,17 @@ static void select_output_device(struct m0_audio_device *adev)
         case AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET:
             ALOGD("%s: AUDIO_DEVICE_OUT_DGTL_DOCK_HEADSET", __func__);
             break;
+        case AUDIO_DEVICE_OUT_AUX_DIGITAL:
+            ALOGD("%s: AUDIO_DEVICE_OUT_AUX_DIGITAL", __func__);
+            break;
         case AUDIO_DEVICE_OUT_ALL_SCO:
             ALOGD("%s: AUDIO_DEVICE_OUT_ALL_SCO", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_USB_ACCESSORY:
+            ALOGD("%s: AUDIO_DEVICE_OUT_USB_ACCESSORY", __func__);
+            break;
+        case AUDIO_DEVICE_OUT_USB_DEVICE:
+            ALOGD("%s: AUDIO_DEVICE_OUT_USB_DEVICE", __func__);
             break;
         default:
             ALOGD("%s: AUDIO_DEVICE_OUT_ALL", __func__);
@@ -718,13 +728,14 @@ static void select_input_device(struct m0_audio_device *adev)
         case AUDIO_DEVICE_IN_BACK_MIC:
             ALOGD("%s: AUDIO_DEVICE_IN_BACK_MIC", __func__);
             break;
-        case AUDIO_DEVICE_IN_BLUETOOTH_SCO_HEADSET:
-            ALOGD("%s: AUDIO_DEVICE_IN_BLUETOOTH_SCO_HEADSET", __func__);
-            break;
         case AUDIO_DEVICE_IN_WIRED_HEADSET:
             ALOGD("%s: AUDIO_DEVICE_IN_WIRED_HEADSET", __func__);
             break;
+        case AUDIO_DEVICE_IN_ALL_SCO:
+            ALOGD("%s: AUDIO_DEVICE_IN_ALL_SCO", __func__);
+            break;
         default:
+            ALOGD("%s: AUDIO_DEVICE_IN_DEFAULT", __func__);
             break;
     }
 
@@ -1496,7 +1507,7 @@ static audio_channel_mask_t in_get_channels(const struct audio_stream *stream)
 {
     struct m0_stream_in *in = (struct m0_stream_in *)stream;
 
-    return in->main_channels;
+    return AUDIO_CHANNEL_IN_STEREO;
 }
 
 static audio_format_t in_get_format(const struct audio_stream *stream)
@@ -2410,7 +2421,7 @@ static int in_remove_audio_effect(const struct audio_stream *stream,
     if (status != 0)
         goto exit;
 
-    ALOGI("%s: effect type: %08x", __func__, desc.type.timeLow);
+    ALOGV("%s: effect type: %08x", __func__, desc.type.timeLow);
 
     if (memcmp(&desc.type, FX_IID_AEC, sizeof(effect_uuid_t)) == 0) {
         in->need_echo_reference = false;
@@ -2439,14 +2450,17 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
     *stream_out = NULL;
 
     out = (struct m0_stream_out *)calloc(1, sizeof(struct m0_stream_out));
-    if (!out)
+    if (!out) {
+        ALOGE("%s: out of memory!", __func__);
         return -ENOMEM;
+    }
 
     out->sup_channel_masks[0] = AUDIO_CHANNEL_OUT_STEREO;
     out->channel_mask = AUDIO_CHANNEL_OUT_STEREO;
 
     if (ladev->outputs[OUTPUT_DEEP_BUF] != NULL) {
         ret = -ENOSYS;
+        ALOGW("%s: output not available!", __func__);
         goto err_open;
     }
     output_type = OUTPUT_DEEP_BUF;
@@ -2462,8 +2476,10 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
                            RESAMPLER_QUALITY_DEFAULT,
                            NULL,
                            &out->resampler);
-    if (ret != 0)
+    if (ret != 0) {
+        ALOGE("%s: error on resampler create!", __func__);
         goto err_open;
+    }
 
     out->stream.common.set_sample_rate = out_set_sample_rate;
     out->stream.common.get_channels = out_get_channels;
@@ -2498,6 +2514,7 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
     return 0;
 
 err_open:
+    ALOGE("%s: error opening output stream", __func__);
     free(out);
     return ret;
 }
@@ -3064,11 +3081,15 @@ static int adev_open(const hw_module_t* module, const char* name,
         goto err_mixer;
 
     /* Set the default route before the PCM stream is opened */
-    pthread_mutex_lock(&adev->lock);
+    pthread_mutex_init(&adev->lock, NULL);
     adev->mode = AUDIO_MODE_NORMAL;
     adev->out_device = AUDIO_DEVICE_OUT_SPEAKER;
     adev->in_device = AUDIO_DEVICE_IN_BUILTIN_MIC & ~AUDIO_DEVICE_BIT_IN;
     select_devices(adev);
+
+    for (i = 0; i < OUTPUT_TOTAL; i++) {
+        adev->outputs[i] = NULL;
+    }
 
     adev->pcm_modem_dl = NULL;
     adev->pcm_modem_ul = NULL;
@@ -3105,7 +3126,7 @@ struct audio_module HAL_MODULE_INFO_SYM = {
         .module_api_version = AUDIO_MODULE_API_VERSION_0_1,
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = AUDIO_HARDWARE_MODULE_ID,
-        .name = "M0 audio HW HAL",
+        .name = "LT01 audio HW HAL",
         .author = "The CyanogenMod Project",
         .methods = &hal_module_methods,
     },
