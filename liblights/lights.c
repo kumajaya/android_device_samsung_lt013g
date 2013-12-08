@@ -108,8 +108,8 @@ set_light_buttons(struct light_device_t* dev,
     int brightness = rgb_to_brightness(state);
 
     pthread_mutex_lock(&g_lock);
-    ALOGD("set_light_buttons: %d\n", brightness > 0 ? 1 : 2);
-    err = write_int(BUTTON_FILE, brightness > 0 ? 1 : 2);
+    ALOGD("set_light_buttons: %d\n", brightness > 0 ? 1 : 0);
+    err = write_int(BUTTON_FILE, brightness > 0 ? 1 : 0);
     pthread_mutex_unlock(&g_lock);
 
     return err;
