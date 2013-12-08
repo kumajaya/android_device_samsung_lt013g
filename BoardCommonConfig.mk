@@ -19,7 +19,5 @@
 
 -include device/samsung/lt01-common/BoardCommonConfig.mk
 
-TARGET_SPECIFIC_HEADER_PATH := device/samsung/lt013g/include
-
 # inherit from the proprietary version
 -include vendor/samsung/lt013g/BoardConfigVendor.mk
