@@ -14,20 +14,12 @@
 # limitations under the License.
 #
 
-# Include common makefile
-$(call inherit-product, device/samsung/lt01-common/common.mk)
+$(call inherit-product, device/samsung/lt013g/common.mk)
 
 LOCAL_PATH := device/samsung/lt013g
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-
-# This device is xhdpi.  However the platform doesn't
-# currently contain all of the bitmaps at xhdpi density so
-# we do this little trick to fall back to the hdpi version
-# if the xhdpi doesn't exist.
-PRODUCT_AAPT_CONFIG := normal large tvdpi hdpi
-PRODUCT_AAPT_PREF_CONFIG := tvdpi
 
 # Init files
 PRODUCT_COPY_FILES += \
@@ -37,18 +29,6 @@ PRODUCT_COPY_FILES += \
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/lt013g
-
-# Camera
-PRODUCT_PACKAGES += \
-    camera.smdk4x12
-
-# IRDA
-PRODUCT_PACKAGES += \
-    irda.exynos4
-
-# Gps
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
@@ -65,9 +45,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
 
-PRODUCT_CHARACTERISTICS := tablet
-
-$(call inherit-product-if-exists, vendor/samsung/lt013g/lt013g-vendor.mk)
+$(call inherit-product, device/samsung/lt01-common/common.mk)

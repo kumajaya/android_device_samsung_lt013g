@@ -17,22 +17,9 @@
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 
--include device/samsung/lt013g/BoardCommonConfig.mk
+-include device/samsung/lt01-common/BoardCommonConfig.mk
 
-# RIL
-BOARD_PROVIDES_LIBRIL := true
-BOARD_MODEM_TYPE := xmm6262
+TARGET_SPECIFIC_HEADER_PATH := device/samsung/lt013g/include
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/lt013g/bluetooth
-
-# Kernel
-TARGET_KERNEL_SOURCE := kernel/samsung/lt01
-TARGET_KERNEL_CONFIG := cyanogenmod_lt013g_defconfig
-
-# assert
-TARGET_OTA_ASSERT_DEVICE := lt013g,lt013gxx,SM-T311,lt01wifi,lt01wifixx,lt01wifiue,SM-T310
-
-# Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/lt013g/rootdir/fstab.smdk4x12
-RECOVERY_FSTAB_VERSION := 2
+# inherit from the proprietary version
+-include vendor/samsung/lt013g/BoardConfigVendor.mk
