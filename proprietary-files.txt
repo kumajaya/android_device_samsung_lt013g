@@ -8,4 +8,3 @@ system/lib/hw/vendor-camera.smdk4x12.so
 system/lib/libsec-ril.so
 system/lib/libsensorservice.so
 system/lib/libwrappergps.so
-system/usr/keylayout/sec_touchkey.kl

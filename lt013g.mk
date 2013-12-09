@@ -30,6 +30,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/tiny_hw.xml:system/etc/sound/lt013g
 
+# Gps
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
+
 # Product specific Packages
 PRODUCT_PACKAGES += \
     libsecril-client \
@@ -46,5 +50,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml
+
+$(call inherit-product-if-exists, vendor/samsung/lt013g/lt013g-vendor.mk)
 
 $(call inherit-product, device/samsung/lt01-common/common.mk)

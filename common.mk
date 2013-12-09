@@ -38,10 +38,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.exynos4
 
-# Gps
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/gps.xml:system/etc/gps.xml
-
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc
 
@@ -52,5 +48,3 @@ PRODUCT_COPY_FILES += \
 PRODUCT_CHARACTERISTICS := tablet
 
 $(call inherit-product, frameworks/native/build/tablet-7in-xhdpi-2048-dalvik-heap.mk)
-
-$(call inherit-product-if-exists, vendor/samsung/lt013g/lt013g-vendor.mk)
