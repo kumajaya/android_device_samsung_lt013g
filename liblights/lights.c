@@ -90,7 +90,6 @@ set_light_backlight(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
-    static int s_previous_brightness = -1;
     int brightness = rgb_to_brightness(state);
 
     pthread_mutex_lock(&g_lock);
@@ -108,7 +107,6 @@ set_light_buttons(struct light_device_t* dev,
     int brightness = rgb_to_brightness(state);
 
     pthread_mutex_lock(&g_lock);
-    ALOGD("set_light_buttons: %d\n", brightness > 0 ? 1 : 0);
     err = write_int(BUTTON_FILE, brightness > 0 ? 1 : 0);
     pthread_mutex_unlock(&g_lock);
 
@@ -124,8 +122,8 @@ close_lights(struct light_device_t *dev)
     return 0;
 }
 
-
 /******************************************************************************/
+
 static int open_lights(const struct hw_module_t* module, char const* name,
         struct hw_device_t** device)
 {
