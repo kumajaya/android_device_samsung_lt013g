@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2013 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,7 +32,7 @@ PRODUCT_PACKAGES += \
 
 # IRDA
 PRODUCT_PACKAGES += \
-    irda.exynos4
+    consumerir.exynos4
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -43,7 +43,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+    frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml
 
 PRODUCT_CHARACTERISTICS := tablet
 

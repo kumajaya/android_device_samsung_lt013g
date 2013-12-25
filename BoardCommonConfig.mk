@@ -14,10 +14,27 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := $(call my-dir)
+# Compatibility with pre-kitkat Sensor HALs
+SENSORS_NEED_SETRATE_ON_ENABLE := true
 
-ifeq ($(TARGET_DEVICE),lt013g)
+# Selinux
+BOARD_SEPOLICY_DIRS += \
+    device/samsung/lt013g/selinux
 
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
-endif
+BOARD_SEPOLICY_UNION += \
+    file_contexts \
+    te_macros \
+    device.te \
+    dhcp.te \
+    domain.te \
+    file.te \
+    init.te \
+    kickstart.te \
+    mediaserver.te \
+    netmgrd.te \
+    qmux.te \
+    rild.te \
+    secril.te \
+    system.te \
+    ueventd.te \
+    wpa_supplicant.te
