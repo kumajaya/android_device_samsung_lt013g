@@ -4,8 +4,8 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 # data partition must be located at the bottom for supporting device encryption
 
-/dev/block/platform/dw_mmc/by-name/EFS         /efs                 ext4      noatime,nosuid,nodev,journal_async_commit,errors=panic                            wait
 /dev/block/platform/dw_mmc/by-name/SYSTEM      /system              ext4      ro,noatime                                                                        wait
+/dev/block/platform/dw_mmc/by-name/EFS         /efs                 ext4      noatime,nosuid,nodev,journal_async_commit,errors=panic                            wait,check
 /dev/block/platform/dw_mmc/by-name/CACHE       /cache               ext4      noatime,nosuid,nodev,journal_async_commit,errors=panic                            wait,check
 /dev/block/platform/dw_mmc/by-name/USERDATA    /data                ext4      noatime,nosuid,nodev,discard,noauto_da_alloc,journal_async_commit,errors=panic    wait,check,encryptable=footer
 

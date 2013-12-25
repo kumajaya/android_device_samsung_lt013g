@@ -19,5 +19,8 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "SM-T311"
+#define BLE_INCLUDED TRUE
+#define BTA_GATT_INCLUDED TRUE
+#define SMP_INCLUDED TRUE
 
 #endif
