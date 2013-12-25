@@ -15,4 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/full_lt013g.mk
+    $(LOCAL_DIR)/aosp_lt013g.mk \
+    $(LOCAL_DIR)/omni_lt013g.mk
