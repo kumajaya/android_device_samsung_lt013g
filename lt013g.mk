@@ -38,16 +38,11 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/twrp.fstab:recovery/root/etc/twrp.fstab
 
-# Omni Packages
-PRODUCT_PACKAGES += \
-    OmniGears \
-    OmniTorch   
-
 # Product specific Packages
 PRODUCT_PACKAGES += \
+    DeviceSettings \
     libsecril-client \
-    libsecril-client-sap \
-    SamsungServiceMode
+    libsecril-client-sap
 
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
