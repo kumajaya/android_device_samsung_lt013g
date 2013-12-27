@@ -40,7 +40,6 @@ PRODUCT_COPY_FILES += \
 
 # Product specific Packages
 PRODUCT_PACKAGES += \
-    DeviceSettings \
     libsecril-client \
     libsecril-client-sap
 
