@@ -1,10 +1,7 @@
 system/bin/geomagneticd
 system/bin/gpsd
 system/bin/orientationd
-system/bin/sensorservice
 system/lib/hw/gps.exynos4.so
-system/lib/hw/sensors.smdk4x12.so
 system/lib/hw/vendor-camera.smdk4x12.so
 system/lib/libsec-ril.so
-system/lib/libsensorservice.so
 system/lib/libwrappergps.so
