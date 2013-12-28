@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Sensors
+BOARD_USE_LEGACY_SENSORS_FUSION := false
+
 # TWRP
 DEVICE_RESOLUTION := 800x1280
 RECOVERY_SD_CARD_ON_DATA := true
