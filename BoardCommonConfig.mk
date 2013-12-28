@@ -14,9 +14,6 @@
 # limitations under the License.
 #
 
-# Compatibility with pre-kitkat Sensor HALs
-SENSORS_NEED_SETRATE_ON_ENABLE := true
-
 # TWRP
 DEVICE_RESOLUTION := 800x1280
 RECOVERY_SD_CARD_ON_DATA := true
