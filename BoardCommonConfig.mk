@@ -17,9 +17,6 @@
 # Compatibility with pre-kitkat Sensor HALs
 SENSORS_NEED_SETRATE_ON_ENABLE := true
 
-# Fix libsensorservice.so not loaded problem
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-
 # TWRP
 DEVICE_RESOLUTION := 800x1280
 RECOVERY_SD_CARD_ON_DATA := true
