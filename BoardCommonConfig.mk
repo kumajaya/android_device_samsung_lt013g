@@ -17,9 +17,6 @@
 # Compatibility with pre-kitkat Sensor HALs
 SENSORS_NEED_SETRATE_ON_ENABLE := true
 
-# Fix libsensorservice.so not loaded problem
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-
 # Selinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/lt013g/selinux
