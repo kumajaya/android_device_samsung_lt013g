@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Sensors
+BOARD_USE_LEGACY_SENSORS_FUSION := false
+
 # Selinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/lt013g/selinux
