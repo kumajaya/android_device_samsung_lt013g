@@ -132,10 +132,6 @@ struct route_setting voicecall_default_disable[] = {
     { .ctl_name = "DAC1L Mixer AIF2 Switch", .intval = 0, },
     { .ctl_name = "DAC1R Mixer AIF2 Switch", .intval = 0, },
     { .ctl_name = "AIF2DAC Mux", .strval = "AIF3DACDAT", },
-    { .ctl_name = "Main Mic Switch", .intval = 0, },
-    { .ctl_name = "MIXINL IN2L Switch", .intval = 0, },
-    { .ctl_name = "Sub Mic Switch", .intval = 0, },
-    { .ctl_name = "MIXINR IN1R Switch", .intval = 0, },
     { .ctl_name = NULL, },
 };
 
@@ -143,22 +139,24 @@ struct route_setting default_input[] = {
     { .ctl_name = "Main Mic Switch", .intval = 1, },
     { .ctl_name = "AIF1ADCL Source", .intval = 0, },
     { .ctl_name = "MIXINL IN2L Switch", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 1, },
-    { .ctl_name = "IN2L Volume", .intval = 25, },
-    { .ctl_name = "MIXINL IN2L Volume", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
+    { .ctl_name = "AIF2DAC2L Mixer Left Sidetone Switch", .intval = 1, },
+    { .ctl_name = "AIF2DAC2L Mixer Right Sidetone Switch", .intval = 0, },
+    { .ctl_name = "IN2L Volume", .intval = 27, },
+    { .ctl_name = "MIXINL IN2L Volume", .intval = 0, },
+    { .ctl_name = "DAC2 Left Sidetone Volume", .intval = 12, },
+    { .ctl_name = "DAC2 Volume", .intval = 96, },
+    { .ctl_name = "AIF2ADC Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 
 struct route_setting default_input_disable[] = {
     { .ctl_name = "Main Mic Switch", .intval = 0, },
     { .ctl_name = "MIXINL IN2L Switch", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 0, },
     { .ctl_name = "IN2L Volume", .intval = 7, },
     { .ctl_name = "MIXINL IN2L Volume", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
+    { .ctl_name = "DAC2 Left Sidetone Volume", .intval = 12, },
+    { .ctl_name = "DAC2 Volume", .intval = 96, },
+    { .ctl_name = "AIF2ADC Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 
@@ -166,22 +164,24 @@ struct route_setting noise_suppression[] = {
     { .ctl_name = "Sub Mic Switch", .intval = 1, },
     { .ctl_name = "AIF1ADCR Source", .intval = 1, },
     { .ctl_name = "MIXINR IN1R Switch", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 1, },
+    /* { .ctl_name = "AIF2DAC2L Mixer Left Sidetone Switch", .intval = 0, },
+    { .ctl_name = "AIF2DAC2L Mixer Right Sidetone Switch", .intval = 1, }, */
     { .ctl_name = "IN1R Volume", .intval = 25, },
     { .ctl_name = "MIXINR IN1R Volume", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
+    /* { .ctl_name = "DAC2 Right Sidetone Volume", .intval = 12, }, */
+    { .ctl_name = "DAC2 Volume", .intval = 96, },
+    { .ctl_name = "AIF2ADC Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 
 struct route_setting noise_suppression_disable[] = {
     { .ctl_name = "Sub Mic Switch", .intval = 0, },
     { .ctl_name = "MIXINR IN1R Switch", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 0, },
     { .ctl_name = "IN1R Volume", .intval = 11, },
     { .ctl_name = "MIXINR IN1R Volume", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
+    /* { .ctl_name = "DAC2 Right Sidetone Volume", .intval = 0, }, */
+    { .ctl_name = "DAC2 Volume", .intval = 96, },
+    { .ctl_name = "AIF2ADC Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 
@@ -190,22 +190,24 @@ struct route_setting headset_input[] = {
     { .ctl_name = "AIF1ADCL Source", .intval = 0, },
     { .ctl_name = "AIF1ADCR Source", .intval = 0, },
     { .ctl_name = "MIXINL IN1L Switch", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 1, },
+    { .ctl_name = "AIF2DAC2L Mixer Left Sidetone Switch", .intval = 1, },
+    { .ctl_name = "AIF2DAC2L Mixer Right Sidetone Switch", .intval = 0, },
     { .ctl_name = "IN1L Volume", .intval = 11, },
     { .ctl_name = "MIXINL IN1L Volume", .intval = 1, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
+    { .ctl_name = "DAC2 Left Sidetone Volume", .intval = 12, },
+    { .ctl_name = "DAC2 Volume", .intval = 96, },
+    { .ctl_name = "AIF2ADC Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 
 struct route_setting headset_input_disable[] = {
     { .ctl_name = "Headset Mic Switch", .intval = 0, },
     { .ctl_name = "MIXINL IN1L Switch", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Mode", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 HPF Switch", .intval = 0, },
     { .ctl_name = "IN1L Volume", .intval = 11, },
     { .ctl_name = "MIXINL IN1L Volume", .intval = 0, },
-    { .ctl_name = "AIF1ADC1 Volume", .intval = 96, },
+    { .ctl_name = "DAC2 Left Sidetone Volume", .intval = 12, },
+    { .ctl_name = "DAC2 Volume", .intval = 96, },
+    { .ctl_name = "AIF2ADC Volume", .intval = 96, },
     { .ctl_name = NULL, },
 };
 
