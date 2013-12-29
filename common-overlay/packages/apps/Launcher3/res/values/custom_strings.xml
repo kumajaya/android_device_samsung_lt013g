@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- AOSP dummy strings -->
+    <string name="chooser_wallpaper">""</string>
+    <string name="folder_cling_move_item">""</string>
+    <string name="group_wallpapers">""</string>
+    <string name="menu_add">""</string>
+    <string name="menu_help">""</string>
+    <string name="menu_manage_apps">""</string>
+    <string name="menu_notifications">""</string>
+    <string name="menu_search">""</string>
+    <string name="menu_settings">""</string>
+    <string name="menu_wallpaper">""</string>
+    <string name="workspace_cling_open_all_apps">""</string>
+</resources>
