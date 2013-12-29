@@ -128,7 +128,6 @@ We are able to have most of our routing static so do that
         <ctl name="AIF1DAC1 EQ3 Volume" val="10"/>
         <ctl name="AIF1DAC1 EQ4 Volume" val="13"/>
         <ctl name="AIF1DAC1 EQ5 Volume" val="12"/>
-        <ctl name="AIF1DAC1 3D Stereo Switch" val="0"/>
     </path>
     <path name="off">
         <ctl name="SPK Switch" val="0"/>
@@ -140,6 +139,7 @@ We are able to have most of our routing static so do that
         <ctl name="Speaker Mixer Volume" val="0"/>
         <ctl name="Speaker Volume" val="57"/>
         <ctl name="Speaker Boost Volume" val="0"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
     </path>
 </device>
 <device name="earpiece">
@@ -153,8 +153,6 @@ We are able to have most of our routing static so do that
         <ctl name="Right Output Mixer DAC Volume" val="7"/>
         <ctl name="Output Volume" val="55"/>
         <ctl name="Earpiece Volume" val="1"/>
-        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
-        <ctl name="AIF1DAC1 3D Stereo Switch" val="0"/>
     </path>
     <path name="off">
         <ctl name="RCV Switch" val="0"/>
@@ -182,8 +180,6 @@ We are able to have most of our routing static so do that
         <ctl name="AIF1DAC1 EQ3 Volume" val="12"/>
         <ctl name="AIF1DAC1 EQ4 Volume" val="14"/>
         <ctl name="AIF1DAC1 EQ5 Volume" val="16"/>
-        <ctl name="AIF1DAC1 3D Stereo Switch" val="1"/>
-        <ctl name="AIF1DAC1 3D Stereo Volume" val="7"/>
     </path>
     <path name="off">
         <ctl name="HP Switch" val="0"/>
@@ -192,6 +188,7 @@ We are able to have most of our routing static so do that
         <ctl name="AIF1 Boost Volume" val="0"/>
         <ctl name="DAC1 Volume" val="96"/>
         <ctl name="Headphone Volume" val="45"/>
+        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
     </path>
 </device>
 <device name="sco-out">
@@ -203,8 +200,6 @@ We are able to have most of our routing static so do that
         <ctl name="AIF1 Boost Volume" val="0"/>
         <ctl name="DAC2 Volume" val="96"/>
         <ctl name="AIF2DAC Volume" val="96"/>
-        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
-        <ctl name="AIF1DAC1 3D Stereo Switch" val="0"/>
     </path>
     <path name="off">
         <ctl name="AIF2DAC2L Mixer AIF1.1 Switch" val="0"/>
@@ -231,8 +226,6 @@ We are able to have most of our routing static so do that
         <ctl name="Right Output Mixer DAC Volume" val="7"/>
         <ctl name="Output Volume" val="56"/>
         <ctl name="LINEOUT2 Volume" val="1"/>
-        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
-        <ctl name="AIF1DAC1 3D Stereo Switch" val="0"/>
     </path>
     <path name="off">
         <ctl name="LineoutSwitch Mode" val="0"/>
@@ -254,8 +247,6 @@ We are able to have most of our routing static so do that
         <ctl name="LINEOUT1P Switch" val="1"/>
         <ctl name="HDMI Switch" val="1"/>
         <ctl name="AIF1DAC1 Volume" val="96"/>
-        <ctl name="AIF1DAC1 EQ Switch" val="0"/>
-        <ctl name="AIF1DAC1 3D Stereo Switch" val="0"/>
     </path>
     <path name="off">
         <ctl name="LINEOUT1N Switch" val="0"/>
