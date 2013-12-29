@@ -17,6 +17,9 @@
 <!-- Camera app resources that may need to be customized
      for different hardware or product builds. -->
 <resources>
+    <!-- Samsung Camcorder Mode -->
+    <bool name="needsSamsungCamMode">true</bool>
+
     <!-- Allows setting video size before recording starts -->
     <bool name="needsEarlyVideoSize">true</bool>
 </resources>
