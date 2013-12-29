@@ -699,10 +699,8 @@ static void select_output_device(struct m0_audio_device *adev)
             ALOGD("%s: set voicecall route: bt_output", __func__);
             set_bigroute_by_array(adev->mixer, bt_output, 1);
         } else {
-            ALOGD("%s: set voicecall route: bt_input_disable", __func__);
-            set_bigroute_by_array(adev->mixer, bt_input_disable, 1);
-            ALOGD("%s: set voicecall route: bt_output_disable", __func__);
-            set_bigroute_by_array(adev->mixer, bt_output_disable, 1);
+            ALOGD("%s: set voicecall route: bt_disable", __func__);
+            set_bigroute_by_array(adev->mixer, bt_disable, 1);
         }
 
         set_incall_device(adev);
