@@ -13,6 +13,13 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
+<!-- Camera app resources that may need to be customized
+     for different hardware or product builds. -->
 <resources>
-    <bool name="config_largeHeap">true</bool>
+    <!-- Samsung Camcorder Mode -->
+    <bool name="needsSamsungCamMode">true</bool>
+
+    <!-- Allows setting video size before recording starts -->
+    <bool name="needsEarlyVideoSize">true</bool>
 </resources>
