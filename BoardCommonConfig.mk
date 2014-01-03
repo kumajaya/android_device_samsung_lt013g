@@ -17,6 +17,9 @@
 # Sensors
 BOARD_USE_LEGACY_SENSORS_FUSION := false
 
+# Legacy driver compatibility
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
 # Selinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/lt013g/selinux
