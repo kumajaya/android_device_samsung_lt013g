@@ -43,7 +43,7 @@ PRODUCT_PACKAGES += \
     sensors.smdk4x12
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.cm.hardware.cabc=/sys/class/mdnie/mdnie/cabc
+    ro.omni.hardware.cabc=/sys/class/mdnie/mdnie/cabc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
