@@ -1,0 +1,6 @@
+#!/system/bin/sh
+
+# Disable button backlight for now
+
+echo 0 > /sys/class/sec/sec_touchkey/brightness
+chmod 400 /sys/class/sec/sec_touchkey/brightness
