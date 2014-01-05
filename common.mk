@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
 
 # Button backlight disabler
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/configs/81backlight:system/etc/init.d/81backlight
+    $(LOCAL_PATH)/configs/81backlight:system/etc/init.d/81backlight
 
 PRODUCT_CHARACTERISTICS := tablet
 
