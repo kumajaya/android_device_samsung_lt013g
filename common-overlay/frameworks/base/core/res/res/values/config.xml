@@ -59,4 +59,8 @@
          The default is false. -->
     <bool name="config_lidControlsSleep">true</bool>
 
+    <!-- Device supports LED flashlight -->
+    <add-resource type="bool" name="config_enableTorch"></add-resource>
+    <bool name="config_enableTorch">false</bool>
+
 </resources>
