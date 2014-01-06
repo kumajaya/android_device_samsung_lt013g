@@ -20,6 +20,9 @@ BOARD_USE_LEGACY_SENSORS_FUSION := false
 # Legacy driver compatibility
 COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
 
+# Support pre-Kitkat audio blobs
+BOARD_HAVE_PRE_KITKAT_AUDIO_BLOB := true
+
 # Button backlight
 BOARD_EXYNOS4X12_TABLET_HAS_LED_BUTTONS := true
 
