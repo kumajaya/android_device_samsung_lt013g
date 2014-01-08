@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/samsung/lt013g/common.mk)
-
 LOCAL_PATH := device/samsung/lt013g
 
 # Overlay
@@ -38,6 +36,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libsecril-client \
     libsecril-client-sap \
+    Stk \
     SamsungServiceMode
 
 # RIL
@@ -46,6 +45,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mobiledata.interfaces=rmnet0,pdp0,wlan0,gprs,ppp0 \
     ro.telephony.call_ring.multiple=false \
     ro.telephony.call_ring.delay=3000
+
+# Disable SELinux
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.boot.selinux=disabled
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \

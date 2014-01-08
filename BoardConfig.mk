@@ -16,9 +16,7 @@
 
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
-
 -include device/samsung/lt01-common/BoardCommonConfig.mk
--include device/samsung/lt013g/BoardCommonConfig.mk
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
