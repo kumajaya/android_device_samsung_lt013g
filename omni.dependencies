@@ -1,6 +1,12 @@
 [
     {
         "remote": "github",
+        "repository": "kumajaya/android_device_samsung_smdk4412-common",
+        "target_path": "device/samsung/smdk4412-common",
+        "revision": "android-4.4"
+    },
+    {
+        "remote": "github",
         "repository": "kumajaya/android_device_samsung_lt01-common",
         "target_path": "device/samsung/lt01-common",
         "revision": "android-4.4"

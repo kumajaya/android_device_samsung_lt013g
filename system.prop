@@ -12,4 +12,4 @@ ro.device.cpu=Dual-core 1.5 GHz
 ro.device.gpu=Mali-400MP
 ro.device.rear_cam=5.0 MP
 ro.device.front_cam=1.3 MP
-ro.device.screen_res=8.0 inch 800p
+ro.device.screen_res=8.0 inch 720p

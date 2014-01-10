@@ -16,9 +16,7 @@
 
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
-
 -include device/samsung/lt01-common/BoardCommonConfig.mk
--include device/samsung/lt013g/BoardCommonConfig.mk
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
@@ -43,5 +41,5 @@ TARGET_OTA_ASSERT_DEVICE := lt013g,lt013gxx,SM-T311
 TARGET_RECOVERY_FSTAB := device/samsung/lt013g/rootdir/fstab.smdk4x12
 RECOVERY_FSTAB_VERSION := 2
 
-# TWRP
+# TWRP (more in BoardCommonConfig.mk)
 DEVICE_RESOLUTION := 800x1280

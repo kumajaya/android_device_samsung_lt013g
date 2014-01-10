@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/samsung/lt013g/common.mk)
-
 LOCAL_PATH := device/samsung/lt013g
 
 # Overlay
