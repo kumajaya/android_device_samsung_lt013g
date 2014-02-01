@@ -8,8 +8,8 @@
         "target_path": "device/samsung/lt01-common"
     },
     {
-        "repository": "android_kernel_samsung_lt01",
-        "target_path": "kernel/samsung/lt01"
+        "repository": "android_kernel_samsung_smdk4x12",
+        "target_path": "kernel/samsung/smdk4x12"
     },
     {
         "repository": "android_packages_apps_SamsungServiceMode",
