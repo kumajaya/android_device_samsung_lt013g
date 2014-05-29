@@ -1,5 +1,4 @@
 system/bin/gpsd
 system/lib/hw/gps.default.so
-system/lib/hw/vendor-camera.smdk4x12.so
 system/lib/libsec-ril.so
 system/lib/libwrappergps.so
