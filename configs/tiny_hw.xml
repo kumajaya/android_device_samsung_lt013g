@@ -275,8 +275,9 @@ We are able to have most of our routing static so do that
     <path name="on">
         <ctl name="Main Mic Switch" val="1"/>
         <ctl name="AIF1ADCL Source" val="0"/>
+        <ctl name="AIF1ADCR Source" val="0"/>
         <ctl name="MIXINL IN2L Switch" val="1"/>
-        <ctl name="AIF1ADC1 HPF Mode" val="0"/>
+        <ctl name="AIF1ADC1 HPF Mode" val="1"/>
         <ctl name="AIF1ADC1 HPF Switch" val="1"/>
         <ctl name="IN2L Volume" val="25"/>
         <ctl name="MIXINL IN2L Volume" val="1"/>
@@ -287,7 +288,7 @@ We are able to have most of our routing static so do that
         <ctl name="MIXINL IN2L Switch" val="0"/>
         <ctl name="AIF1ADC1 HPF Mode" val="0"/>
         <ctl name="AIF1ADC1 HPF Switch" val="0"/>
-        <ctl name="IN2L Volume" val="4"/>
+        <ctl name="IN2L Volume" val="11"/>
         <ctl name="MIXINL IN2L Volume" val="0"/>
         <ctl name="AIF1ADC1 Volume" val="96"/>
     </path>
