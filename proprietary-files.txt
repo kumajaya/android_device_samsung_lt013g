@@ -1,4 +1,12 @@
 system/bin/gpsd
+system/etc/wifi/bcmdhd_apsta.bin_b2
+system/etc/wifi/bcmdhd_mfg.bin_b2
+system/etc/wifi/bcmdhd_p2p.bin_b2
+system/etc/wifi/bcmdhd_sta.bin_b2
+system/etc/wifi/nvram_mfg.txt
+system/etc/wifi/nvram_mfg.txt_murata
+system/etc/wifi/nvram_net.txt
+system/etc/wifi/nvram_net.txt_murata
 system/lib/hw/gps.default.so
 system/lib/libsec-ril.so
 system/lib/libwrappergps.so
